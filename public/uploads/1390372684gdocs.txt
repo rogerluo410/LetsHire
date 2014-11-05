@@ -1,0 +1,29 @@
+https://docs.google.com/document/d/1Ra5ub_hJp8aXkHdGxftW8MQNBNqk-IEIeaOjjq966nY/edit   --Daysoff document
+https://docs.google.com/spreadsheet/ccc?key=0AuEyPygU2MkedFltek1kaEl1OEFEcTBYRE5adDllX1E#gid=28
+
+
+
+talk to Chunjie about how to do this
+[9/5/2013 4:22:35 PM] Nelson Lai: you should read this document to familiarise with Gerrit + Jenkins
+[9/5/2013 4:22:36 PM] Nelson Lai: https://docs.google.com/a/rbcon.com/document/d/1md5tI3g-qu2yluqvVQuHr4Fh_JFNDZY_alkVH12KVeM/edit
+[9/5/2013 4:22:54 PM] Nelson Lai: that document refers to the old Gerrit + Jenkins instance for CloudFoundry
+[9/5/2013 4:22:59 PM] Nelson Lai: we have a new set of Gerrit + Jenkins for VMware
+[9/5/2013 4:23:09 PM] Nelson Lai: tempest-ci.eng.vmware.com, tempest-reviews.eng.vmware.com
+[9/5/2013 4:23:55 PM] Nelson Lai: you can also read this doc, on how Gerrit + Jenkins are built + integrated
+[9/5/2013 4:23:55 PM] Nelson Lai: https://docs.google.com/a/rbcon.com/document/d/16tRjUThRyMJZE7bJp2uM4TUYB6MfwKF1QdCpo8ATX9Q/edit
+[9/5/2013 4:24:18 PM] Jiafei Zhou: OK
+[9/5/2013 4:24:29 PM] Nelson Lai: i just said a lot of stuff, so lemme summarise :)
+[9/5/2013 4:24:34 PM] Jiafei Zhou: let's  do it  one  by one
+[9/5/2013 4:25:13 PM] Nelson Lai: 1 - i want you guys to use the same tools we use: Gerrit + Jenkins. start by reading up on the docs, understand what the tools do.
+[9/5/2013 4:25:36 PM] Jiafei Zhou: OK   we'll
+[9/5/2013 4:26:25 PM] Nelson Lai: 2 - ask chunjie to show you how to add DaysOff to the Gerrit + Jenkins system that we use here -- this will impact your dev workflow -- instead of committing directly to github, you'll commit first to gerrit
+[9/5/2013 4:27:16 PM] Nelson Lai: 3 - only after DaysOff is setup in Gerrit + Jenkins, should you start implementing the API -- please review the API with Khalil first
+[9/5/2013 4:27:44 PM] Nelson Lai: 4 - implement the API one-by-one -- make sure you have good test coverage for the API, use a NodeJS test tool named "mocha"
+[9/5/2013 4:28:00 PM] Jiafei Zhou: OK
+[9/5/2013 4:30:27 PM] Nelson Lai: i've added these to the Pivotal Tracker, under the "Vacation Tracker Webapp" Epic
+[9/5/2013 4:30:33 PM] Nelson Lai: https://www.pivotaltracker.com/epic/show/791862
+[9/5/2013 4:30:46 PM] Nelson Lai: i added a few stories in here, so you have enough to work on :)
+[9/5/2013 4:31:03 PM] Jiafei Zhou: I see
+[9/5/2013 4:31:25 PM] Nelson Lai: if i don't assign a story to a person, that means anyone can take on that task
+[9/5/2013 4:31:51 PM] Nelson Lai: weiqi -- sound good?
+[9/5/2013 4:32:27 PM] eclipse Luo: OK!

@@ -1,0 +1,66 @@
+tr data-id=candidate.id
+  - openingcandidate = candidate.opening_candidates
+  td
+    a href="/comments/#{openingcandidate[0].id}" title="View detail messages" 
+     #{candidate.name}
+  td style="text-align:center;width: 70px;" = candidate.company
+  td style="text-align:center;width: 70px;" 
+   .hidden-tddiv 
+     a  href="mailto:#{candidate.email}"  #{candidate.email} 
+  td style="text-align:center;width: 70px;"
+   .hidden-tddiv
+     a  #{candidate.phone}
+  td style="text-align:left;width: 90px;"  = candidate.created_at.strftime('%b %d, %G')
+  - if candidate.status == 0 
+   td style="text-align:left;width: 90px;" 
+    .hidden-tddiv0
+      span  title="Assigned to #{Opening.find(candidate.openingid).title}.#{Opening.find(candidate.openingid).level}"
+        ="Assigned to " + Opening.find(candidate.openingid).title + "." + Opening.find(candidate.openingid).level
+  - elsif candidate.status == 1
+   td style="text-align:left;width: 90px;" 
+    .hidden-tddiv0
+      span title="Rejected to #{Opening.find(candidate.openingid).title}.#{Opening.find(candidate.openingid).level}" 
+        ="Rejected to " + Opening.find(candidate.openingid).title + "." + Opening.find(candidate.openingid).level
+  - elsif candidate.status == 2
+   td style="text-align:left;width: 90px;" 
+    .hidden-tddiv0
+      span title="Made offer to #{Opening.find(candidate.openingid).title}.#{Opening.find(candidate.openingid).level}" 
+        ="Made offer to " + Opening.find(candidate.openingid).title + "." + Opening.find(candidate.openingid).level
+  - else
+   td style="text-align:left;width: 90px;" 
+    .hidden-tddiv0
+      span title="No Job Opening Assignment" 
+        ="No Job Opening Assignment"
+ 
+  td style="text-align:center;width: 70px;"
+    -if candidate.rating >= 8
+       div class="btn btn-success btn-xs"  #{candidate.rating}
+    -elsif candidate.rating >=5
+       div class="btn btn-warning btn-xs"  #{candidate.rating} 
+    -else
+       div class="btn btn-danger btn-xs"  #{candidate.rating}
+  td  
+    a href="/candidates/#{candidate.id}/resume"
+      img src="assets/glyphicons_062_paperclip.png" title="Resume"
+    a href="" onclick="commentDialog(#{openingcandidate[0].id},2);return false;"
+      img src="assets/glyphicons_244_conversation.png" title="Feedback"
+    a href="/candidates/lock/#{candidate.id}"
+       - candidatetmp = Candidate.where("id = #{candidate.id}") 
+       - if candidatetmp[0].rating != 0   
+         img src="assets/glyphicons_203_lock.png" title="Locked" 
+       - else 
+         img src="assets/glyphicons_204_unlock.png" title="Unlocked"
+    a href="/candidates/#{candidate.id}"
+      img src="assets/edit.png" title="Edit"
+  td  
+    - interviewers = Interviewer.where("interview_id = ?",openingcandidate[0].id)
+    - list_str = "|"
+    - interviewers.each do |interviewer|
+     - user = User.find(interviewer.user_id)
+     - list_str += user.name.to_s + "," + interviewer.state.to_s + "|"
+    button class="btn btn-primary btn-xs" onclick="delegateDialog(#{openingcandidate[0].id},'#{list_str}',1); return false;"  Delegate
+    button class="btn btn-danger btn-xs" onclick="confirmDialog(#{candidate.id},'#{candidate.name}',#{candidate.openingid});return false;"  Reject
+    button class="btn btn-success btn-xs" onclick="confirmOfferDialog(#{candidate.id},'#{candidate.name}',#{candidate.openingid});return false;" Make Offer
+  
+  =render 'candidates/candidate_blacklist', {:candidate => candidate}
+

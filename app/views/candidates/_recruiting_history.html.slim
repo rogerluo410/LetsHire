@@ -1,0 +1,35 @@
+- unless applying_job.nil?
+  .row-fluid
+    - if applying_job.fail? or applying_job.quit?
+      .candidate_failed
+    - else
+      .candidate_successful
+    h4.interview_result Recruiting History for #{applying_job.opening.title}
+  hr.candidate-splitter-line
+  div
+    - if applying_job.interviews.length > 0
+      .container-fluid
+        .row-fluid
+          .span12
+            .accordion
+              - i = 0
+              - applying_job.interviews.each do |interview|
+                - i += 1      
+                h3
+                  span.mr10 = interview.scheduled_at
+                  span.mr10 = interview.modality
+                  span.mr10 = interview.duration
+                  span.mr10 = interview.status
+                div
+                  - if interview.status == 'finished'
+                    p Feedback from interviews
+                    .accordion
+                      - uids = interview.interviewers.map{|u| u.user_id}
+                      - interviews = User.active.find(:all, :conditions => ['id in (?)', uids]).map{|u| u.name}
+                      h3
+                        = "From #{interviews.join(' ')}"
+                      div
+                          = interview.assessment
+    p 
+      strong Final Assessment
+    =render :partial => 'job_assessment', :locals => { :opening_candidate => applying_job }

@@ -1,0 +1,16 @@
+- users.each do |user|
+  tr
+    td
+      = check_box_tag nil, user.id, false,  { :id => nil, :data => { :str => user.name  } }
+    td.span5
+      = truncate(user.name, :length => 30)
+    td
+      i.icon-arrow-down
+  tr.hide
+    td
+    td
+      = "Email: #{h(user.email)}"
+      p
+      = "Department: #{user.department.name}"
+    td
+

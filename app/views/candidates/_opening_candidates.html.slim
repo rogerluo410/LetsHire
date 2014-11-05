@@ -1,0 +1,6 @@
+div class="form-group col-md-10"
+          =f.label :candidate_id , value="Candidates",:class => 'label-control' , :name=>"recommendboxs" ,:id=>"recommendboxs"
+          = f.text_field :candidate_id  , :value=>"",:id=>"boxsS" ,:type=>"hidden" 
+          - openings =  Opening.owned_by(current_user.id)
+          = f.select :opening_id,  options_for_select(openings.map { |o| [o.title,o.id]}) , {} ,{:multiple => "true", :class=>"form-control" ,:id=>"recommendselect",:onchange=>"selectM()"} 
+         

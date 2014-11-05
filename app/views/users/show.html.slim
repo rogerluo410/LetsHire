@@ -1,0 +1,31 @@
+= notice
+.content
+  ul.breadcrumb
+    li
+      | Users
+      span.divider 
+        | &raquo;
+    li.active
+      | #{@user.name}
+    li.r
+      =link_to 'Edit', edit_user_path(@user.id), :class => 'btn btn-primary'
+  .page-container.clearfix
+    .form-horizontal.clear-both
+      .control-group
+        label.control-label
+          b Name:
+        .controls
+          span = @user.name
+      .control-group
+        label.control-label
+          b Email:
+        .controls
+          span = @user.email
+      .control-group
+        label.control-label
+          b Roles:
+        .controls
+          span = @user.roles_string
+      - if @user.admin
+        .controls
+          span = 'This User is Administrator'

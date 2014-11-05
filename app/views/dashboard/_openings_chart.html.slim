@@ -1,0 +1,24 @@
+div.chart-title
+  h4 Job Openings
+hr
+- data = [@openings_created_by_me, @openings_assigned_to_me, @openings_without_interviewers]
+- magicnum = data.max * 1.5
+- display = data << magicnum
+= jqplot 300, 300, [display], { \
+    seriesDefaults: { \
+      renderer: "$.jqplot.BarRenderer", \
+      rendererOptions: { varyBarColor: true } \
+    }, \
+    series: [{pointLabels: { \
+      show: true, \
+      label: data, \
+      formatString: '%d' \
+    }}], \
+    axes:{ \
+      xaxis:{ \
+        renderer: "$.jqplot.CategoryAxisRenderer", \
+        ticks: ["Created by you", "Assigned to you", "No interviewers"] \
+      }, \
+      yaxis:{ padMax:2, showTicks:false } \
+    } \
+  }

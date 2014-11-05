@@ -1,0 +1,39 @@
+fieldset
+ legend = "Select delegated users:"
+ div style="clear:both"
+  div class="div-delegated-users"
+   span="Delegated_users:"
+   - users =  User.active
+   select multiple="true" class="multiselect1"  size=8
+    - users.map do | o |
+     option value=o.id 
+        =o.name
+
+  div class="div-delegated-button"
+   input type="button" class="add" value=">>" title="Add delegated" style="width:40px"
+   input type="button" class="remove" value="<<" title="Remove selected" style="width:40px"
+
+  div class="div-delegated-selected" 
+   span="Selected_delegated_users:"
+   select class="multiselect2"  size="8"
+
+   input id="openingcandidateid1" type="hidden"
+   input id="pageid_delegate" type="hidden"
+   input id="list_interviewer" type="hidden"
+ 
+
+fieldset style="margin-top:75px"
+ legend="Delegated users'status:"
+ div style="height:170px"
+  table class='table table-hover table-striped mt20 sortable' id="documents"
+   thead class='sortable colheader'
+     tr
+      th= "Name"
+      th= "Status" 
+   tbody
+
+ div id="paginator"  
+
+
+
+       

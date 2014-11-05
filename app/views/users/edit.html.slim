@@ -1,0 +1,13 @@
+.content
+  ul.breadcrumb
+    li 
+      | Users
+      span.divider 
+        | &raquo;
+    li
+    	| #{@user.name}
+    	span.divider
+    		| &raquo;
+    li.active Edit
+
+  == render 'form'

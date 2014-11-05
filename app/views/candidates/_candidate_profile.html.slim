@@ -1,0 +1,32 @@
+- unless @candidate.nil?
+  
+  table.table.candidate-profile
+    tr
+      td.align-right Status:
+      td 
+        - status = ""
+        - if @candidate.status == 0
+          - status = "Assigned to #{Opening.find(@candidate.openingid).title}.#{Opening.find(@candidate.openingid).level}"
+        - elsif @candidate.status == 1
+          - status = "Rejected to #{Opening.find(@candidate.openingid).title}.#{Opening.find(@candidate.openingid).level}"
+        - elsif @candidate.status == 2
+          - status = "Made offer to #{Opening.find(@candidate.openingid).title}.#{Opening.find(@candidate.openingid).level}"
+        span  #{status}
+    tr
+      td.align-right E-mail:
+      td
+        a href="mailto:#{@candidate.email}" = @candidate.email
+    tr
+      td.align-right Phone:
+      td
+        = @candidate.phone
+    tr
+      td.align-right From:
+      td
+        = @candidate.company
+    tr
+      td.align-right Resume:
+      td
+        - if not @resume.nil?
+          = link_to "#{@resume}", resume_candidate_path({:id => @candidate.id})
+

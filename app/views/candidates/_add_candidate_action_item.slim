@@ -1,0 +1,6 @@
+-candidates ||= params[:candidates]
+-if !candidates.nil? and candidates.count == 0
+  li
+    span No candidate,
+    a href=new_candidate_path
+      span Add a candidate

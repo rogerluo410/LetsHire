@@ -1,0 +1,23 @@
+.hk
+ .containerlogin
+  .jumbotron
+   .form-inline
+    -if User.count == 0
+      b
+       a style="font-size:26px;" href="/init" Please click here to initialise your LetsHire installation.
+    -else
+     = form_for('user', :url => user_session_path, :html => {:class=>'login-form'}) do |form|
+      .form-inline
+      h1 Letshire!
+      .mb20
+      = form.text_field :email, :class => 'input-lg', :autofocus => true, :placeholder => 'Email'
+      = form.password_field :password, :class => 'input-lg', :autocomplete => 'off', :placeholder => 'Password'
+      .mb20
+      = form.submit 'sign in', :class => 'btn btn-lg  btn-primary'
+      .mb20
+      = form.check_box :remember_me, :id => 'login_checkbox', :checked => 'checked' , :class => 'login_checkbox_name'
+      = form.label :remember_me, :class => 'login_checkbox_name'
+      a class='login_checkbox_name' style="font-size:16px;" href='/users/password/new' &nbsp&nbspForgot your password?
+      div
+      a class='login_checkbox_name' style="font-size:16px;padding-left: 130px;"   href='/users/confirmation/new'  &nbspNot received your confirmation e-mail? 
+

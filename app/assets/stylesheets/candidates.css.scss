@@ -1,0 +1,110 @@
+img.indicator {
+  width: 13px;
+  height: 12px;
+  background: url(arrow.png) no-repeat center;
+}
+
+div.assessment-candidate-dialog {
+  display: none;
+}
+
+div.dialog-candidate-blacklist-div {
+  display: none;
+}
+
+div.page-container-inner.candidate-panel {
+    padding: 10px;
+}
+
+div.page-container-inner.candidate-panel.fixed-size {
+    overflow: auto;
+}
+
+.candidate-container {
+    height: 320px;
+}
+
+.candidate-profile-panel {
+    line-height: 2;
+    margin: 0 auto;
+}
+
+#candidate-no-assignment-msg {
+    line-height: 320px;
+}
+
+hr.candidate-splitter-line {
+  color: #dcdbdf;
+  background-color: #CCC;
+  height: 2px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.candidate-name-font {
+  color: #2c639b;
+  font-size: 30px;
+  line-height: 1;
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap; 
+  white-space: -o-pre-wrap; 
+  word-wrap: break-word; 
+}
+
+.candidate-status-font {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+table.candidate-profile {
+  margin: 15px 0;
+}
+
+table.candidate-profile td {
+  border: none;
+}
+
+.candidate-profile td { 
+    font-size: 15px;
+    white-space: pre-wrap; 
+    white-space: -moz-pre-wrap; 
+    white-space: -pre-wrap; 
+    white-space: -o-pre-wrap; 
+    word-wrap: break-word; 
+}
+
+.candidate-profile td.align-right {
+    width: 30%;
+    text-align: right;
+    font-weight: bold;
+}
+
+div.candidate_successful {
+    float: left;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    background: url(candidate_successful.png) no-repeat center;
+}
+
+div.candidate_failed {
+    float: left;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    background: url(candidate_failed.png) no-repeat center;
+}
+
+h4.interview_result {
+    padding: 10px 5px 15px 5px;
+}
+
+a.photo-preview-tooltip {
+    color: #0088CC;
+    margin-left: 5px;
+}
+
+.photo-preview-dialog {
+  max-width: none;
+}

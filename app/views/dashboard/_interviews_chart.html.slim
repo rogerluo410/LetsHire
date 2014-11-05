@@ -1,0 +1,34 @@
+div.chart-title
+  h4 Interviews
+hr
+- magicnum = @interviews_assigned_to_me.max
+- magicnum = magicnum > @interviews_upcoming_today.max ? magicnum : @interviews_upcoming_today.max
+- magicnum = 2 if magicnum == 0
+- magicnum *= 1.5
+- data1 = @interviews_assigned_to_me
+- data2 = @interviews_upcoming_today
+- yaxisdisp = Range.new(1, magicnum).to_a
+- xaxislabel = @dates
+- legendLabels = ['Assigned to you', 'Upcoming today']
+= jqplot 300, 380, [data1, data2], { \
+    seriesDefaults: { \
+      showMarker: true, \
+      pointLabels: { show:true, formatString: '%d' } \
+    }, \
+    legend: { \
+      show: true, \
+      location: 'n', \
+      labels: legendLabels, \
+      rendererOptions: { placement: "insideGrid" } \
+    }, \
+    cursor: { style: 'crosshair', show: true }, \
+    axes:{ \
+      xaxis:{ \
+        renderer: "$.jqplot.CategoryAxisRenderer", \
+        ticks: xaxislabel \
+      }, \
+      yaxis:{ \
+        renderer: "$.jqplot.CategoryAxisRenderer", \
+        ticks: yaxisdisp} \
+    } \
+  }

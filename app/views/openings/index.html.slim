@@ -1,0 +1,24 @@
+.containermain
+ .content
+    .row
+     .col-lg-12
+     button class="btn btn-primary btn-lg pull-right btn-length " onclick="openingDialog();return false;"Create Opening
+     br
+     br
+    .row 
+     .col-lg-12
+      ul class="nav nav-tabs" style="border-bottom-width: 0px;"
+       li class="active"
+        a href="/openings" style="font-size:15px;font-weight:bold;"  Openings 
+       li 
+        a href="/candidates" style="font-size:15px;font-weight:bold;"  Candidates
+
+     div id="opening-dialog"
+      = form_for @opening, :html => {:class => 'form-horizontal'} do |f|
+       = f.error_messages
+       = render 'create_opening_form',:f => f
+       div class="col-md-4"
+         = f.submit 'Create', :class=>'btn btn-primary btn-lg'
+
+
+    =render 'openings_index'

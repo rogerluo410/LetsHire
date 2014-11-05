@@ -1,0 +1,11 @@
+-opening_candidate ||= nil
+.row-fluid
+  .span1
+  .span11
+    - if opening_candidate
+      - unless opening_candidate.assessment.nil?
+        =render opening_candidate.assessment
+      - else
+        span No final assessment.
+    - else
+      span No final assessment.

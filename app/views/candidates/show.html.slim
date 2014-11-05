@@ -1,0 +1,15 @@
+.content
+  ul.breadcrumb
+    li 
+      a href="/candidates"  Candidates
+      span.divider 
+        | &raquo;
+    li.active
+      | #{@candidate.name}
+    - if can? :manage, @candidate
+      li.r
+        = link_to 'Edit', edit_candidate_path(@candidate), :class => "btn btn-primary"
+  .page-container
+      .span4
+          =render 'candidate_profile'
+

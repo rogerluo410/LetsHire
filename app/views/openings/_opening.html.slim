@@ -1,0 +1,28 @@
+div class="row req" style="width:100% ;"
+    h2 
+     a href="openings/opening_detail/#{opening.id}"  #{opening.title} (#{opening.level})     
+     span title="Hiring total number" class="label label-success" #{opening.total_no}
+     a href="/openings/#{opening.id}/openingfile"
+        img src="/assets/glyphicons_062_paperclip.png" title="Job Description" style="margin-left:5px"
+    -@opening_candidate_all = OpeningCandidate.where("opening_id = #{opening.id}")
+    div class="col-md-4"  style="float:left;width:28%;" 
+      h4 Filled
+      div class="progress"
+        - @opening_candidate_filled = OpeningCandidate.where("status ='2' and  opening_id = #{opening.id} ")
+        div class="progress-bar progress-bar-success" style="width:#{@opening_candidate_filled.length*92/(@opening_candidate_all.length+0.1)}%" 
+        span class="ptext"  #{@opening_candidate_filled.length} 
+ 
+    div class="col-md-4" style="float:left;width:28%"
+      h4 Pipeline
+      div class="progress"
+        - @opening_candidate_pipeline = OpeningCandidate.where("status ='0' and  opening_id = #{opening.id} ") 
+        div class="progress-bar progress-bar-primary" style="width:#{@opening_candidate_pipeline.length*92/(@opening_candidate_all.length+0.1)}%"
+        span class="ptext"   #{ @opening_candidate_pipeline.length}
+  
+    div class="col-md-4" style="float:left;width:28%"
+      h4 Rejected
+      div class="progress"
+        - @opening_candidate_rejected = OpeningCandidate.where("status ='1' and  opening_id = #{opening.id} ") 
+        div class="progress-bar progress-bar-danger" style="width:#{@opening_candidate_rejected.length*92/(@opening_candidate_all.length+0.1)}%"
+        span class="ptext"  #{@opening_candidate_rejected.length} 
+div style="height:8px;" 

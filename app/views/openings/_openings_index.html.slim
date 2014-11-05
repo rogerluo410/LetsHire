@@ -1,0 +1,6 @@
+table class='table table-hover table-striped mt20 table-openings'
+  thead class='sortable colheader'
+    tr
+    = render @openings 
+
+= will_paginate @openings, :class => 'digg-paginate'

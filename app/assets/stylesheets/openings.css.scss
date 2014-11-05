@@ -1,0 +1,13 @@
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+label.warning_message_label {
+  display: none;
+  padding: 2px;
+  margin: 2px;
+  background-color: orangered;
+  width: 50%;
+}

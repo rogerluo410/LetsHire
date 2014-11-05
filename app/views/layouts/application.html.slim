@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title = full_title(yield(:title))
+    = stylesheet_link_tag "custom-theme/jquery-ui.custom", meida: "all"
+    = stylesheet_link_tag "bootstrap", meida: "all"
+    = stylesheet_link_tag "application", meida: "all"
+    = javascript_include_tag "application"
+    = favicon_link_tag "favicon.ico"
+    = javascript_include_tag "jqplot"
+    = javascript_include_tag "jqplot/plugins/trendline"
+    = javascript_include_tag "jqplot/plugins/cursor"
+    = javascript_include_tag "jqplot/plugins/highlighter"
+    = javascript_include_tag "jqplot/plugins/pointLabels"
+    = javascript_include_tag "jqplot/plugins/pieRenderer"
+    = javascript_include_tag "jqplot/plugins/donutRenderer"
+    = javascript_include_tag "jqplot/plugins/dateAxisRenderer"
+    = javascript_include_tag "jqplot/plugins/canvasTextRenderer"
+    = javascript_include_tag "jqplot/plugins/canvasAxisTickRenderer"
+    = javascript_include_tag "jqplot/plugins/canvasAxisLabelRenderer"
+    = javascript_include_tag "jqplot/plugins/categoryAxisRenderer"
+    = javascript_include_tag "jqplot/plugins/barRenderer"
+    = csrf_meta_tags
+    = render 'layouts/shim'
+    div id="sb-wrapper"
+  body data-controller="#{params[:controller]}"
+    /- unless user_signed_in?
+    = render 'layouts/header'
+    #main.container
+      - if user_signed_in?
+        header
+                div.page-container
+      = render 'layouts/flash_message'
+      == yield
+    = render 'layouts/footer'

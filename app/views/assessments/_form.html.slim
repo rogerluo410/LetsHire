@@ -1,0 +1,19 @@
+
+
+= form_for [@opening_candidate, @assessment], :method => :put, :html => {:class => 'form-horizontal clear-both assessment-form'} do |f|
+  = f.error_messages
+
+  .control-group
+    = label_tag :status, 'Status', :class => 'control-label'
+    .controls
+      = select :opening_candidate, :status, @opening_candidate.next_status_options
+
+  .control-group
+    = f.label :comment, 'Comment', :class => 'control-label'
+    .controls
+      = f.text_area :comment, :class => 'span5'
+
+  .control-group
+    .controls
+      .actions
+      = f.submit 'Save', :class => 'btn btn-primary'

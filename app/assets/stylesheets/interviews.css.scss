@@ -1,0 +1,61 @@
+.interviewer-line {
+  line-height: 20px;
+  vertical-align: middle;
+
+  .name {
+    font-weight: bold;
+  }
+
+  .email {
+    font-style: italic;
+    padding-left: 4px;
+  }
+}
+
+
+.dialog-feedback-div {
+  display: none;
+}
+
+.assessment-interview-label {
+  font-weight: bold;
+}
+
+.datetimepicker {
+  width:  140px;
+}
+
+table.schedule_interviews,
+table.list_interviews {
+    select, 
+    input,
+    p {
+        margin-bottom: 0;
+    }
+
+    input.text {
+        width: 100px;
+    }
+
+    .status {
+        select {
+            width: 120px;
+        }
+    }
+
+    #interviewers_literal {
+        width: 100px;
+        margin-left: 0px;    
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+}
+
+.add-new-interview-div {
+  padding: 10px 0;
+}
+
+a.add_new_interview:link {text-decoration:none;}
+a.add_new_interview:visited {text-decoration:none;}
+a.add_new_interview:hover {text-decoration:none;}
+a.add_new_interview:active {text-decoration:none;}

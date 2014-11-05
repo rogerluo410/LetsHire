@@ -1,0 +1,25 @@
+.page-container-wrapper
+  h3 Openings
+  .page-container
+    .page-container-inner.page-container-inner-list
+      table class='table table-hover table-bordered table-striped'
+        thead
+          tr
+            th = sortable 'Opening', 'title', 'Title'
+            th = sortable 'Opening', 'department_id', 'Department'
+            th = sortable 'Opening', 'recruiter_id', 'Recruiter'
+            th = sortable 'Opening', 'total_no', 'Seat'
+            th
+        tbody
+        - @openings.each do |opening|
+          tr
+            td= link_to opening.title, opening
+            td= opening.department.try(:name)
+            td= opening.recruiter.try(:name)
+            td= opening.available_no
+
+            td.actions
+              = link_to 'Details', opening, :class => "btn"
+
+      = will_paginate @openings, :class => "digg-paginate"
+

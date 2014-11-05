@@ -1,0 +1,12 @@
+.content
+  ul.breadcrumb
+    li
+      a href="/openings/opening_detail/#{@opening.id}" Opening Detail 
+      span.divider
+        | &raquo;
+    li 
+      | #{@opening.title}
+      span.divider
+        | &raquo;
+    li.active Edit
+  == render 'form'

@@ -1,0 +1,8 @@
+- multiple ||= false
+- selected ||= nil
+- name ||= :user_id
+-if users && users.count > 0
+  = select_tag name, options_for_select( users.map { |user| [user.name, user.id] }, selected), :multiple => multiple
+-else
+  = select_tag name, {}
+

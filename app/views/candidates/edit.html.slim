@@ -1,0 +1,22 @@
+.content
+  ul.breadcrumb
+    li 
+      a href="/candidates"  Candidates
+      span.divider
+        | &raquo;
+    li
+      | #{@candidate.name}
+      span.divider
+        | &raquo;
+    li.active Edit
+  div.page-container
+    = form_for @candidate, :html => { :class => 'form-horizontal' }  do |f|
+      = f.error_messages
+      .control-group
+      = render 'form', :f => f
+
+      .control-group
+        .controls
+          .actions
+            = f.submit 'Save', :class => 'btn btn-primary'
+            = link_to 'Cancel', :back, :class => 'btn'

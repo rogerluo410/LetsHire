@@ -1,0 +1,28 @@
+div class="form-group col-md-10"
+  = f.label :name,"Full Name" ,:class => 'label-control'
+  = f.text_field :name , :class => 'form-control' ,:id => "fullname" , :placeholder => "Full Name"
+div class="form-group col-md-10"
+  = f.label :name,"company" ,:class => 'label-control'
+  = f.text_field :company , :class => 'form-control' ,:id => "company" , :placeholder => "Company"
+div class="form-group col-md-10"
+  = f.label :email,"Email" , :class => 'label-control'
+  = f.text_field :email , :class => "form-control" , :type => "email", :id => "email", :placeholder => "Email"
+div class="form-group col-md-10"
+  = f.label :phone, "Mobile" ,:class => 'label-control'
+  = f.text_field :phone , :class=>"form-control", :type=>"mobile", :id=>"mobile", :placeholder=>"Mobile"
+div class="form-group col-md-6"
+          =f.label :openingname, "Opening",:class => 'label-control'
+          =f.text_field :openingname,  :class => "form-control" , :id => "openingname" , :readonly => "readonly"
+          = f.text_field :openingid, :id => "openingid1" , :type => "hidden"
+div class="form-group col-md-10"
+        td
+          - if not @resume.nil?
+            = link_to "#{@resume}", resume_candidate_path({:id => @candidate.id})
+        td
+          .fileupload.fileupload-new data-provides='fileupload'
+            span.btn.btn-file
+              span.fileupload-new Select File
+              span.fileupload-exists Change
+              = f.file_field :resume
+            span.fileupload-preview
+            a.close.fileupload-exists href='#' data-dismiss='fileupload' style="float: none" ×

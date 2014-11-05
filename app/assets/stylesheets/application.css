@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require jqplot
+ *= require token-input
+ *= require font-awesome/css/font-awesome
+ *= require_self
+ *= require_tree .
+ */
+
+.btn {                                                      
+  margin: 0 2px 0 2px;                                      
+}
+
+.lastli {
+  margin-bottom: 12px;
+}
+
+.align-to-title {
+  margin: 10px 8px;
+}
+
+.home-title {
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    margin: 0;
+    text-align: left;
+}
+
+.sign-in {
+  margin-left: 20px;
+}
+
+.full-input {
+  width: 95%;
+}
+
+#login_div {
+  margin-top: 8px;
+}
+
+#login_checkbox {
+  margin: 0 5px 0 0;
+}
+
+div.form-horizontal .control-label {
+  padding-top: 0;
+}
+
+.capitalized-text {
+  text-transform: capitalize;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.sortable th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.sortable th .asc {
+  background-image: url(up_arrow.gif);
+}
+
+.sortable th .desc {
+  background-image: url(down_arrow.gif);
+}
+
+label.filter-button-label {
+  font-size: 14px;
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+img.logo {
+  float: left;
+  width: 300px;
+  height: 80px;
+  margin-top: 30px;
+}
+
+.clearfix:before {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.nav-header {
+  height: 150px;
+  background: url(nav_bg.png) repeat-x bottom;
+}
+
+.nav-bar {
+  margin-top: 85px;
+}
+
+.nav-bar span {
+  font-weight: bold;
+  font-size: 115%;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.nav-bar span:last-child {
+  border-right: 0;
+}
+
+.nav-bar span a {
+  color: graytext;
+}
+
+.nav-bar span a.current {
+  color: #2d6987;
+}

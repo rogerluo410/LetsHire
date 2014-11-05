@@ -1,0 +1,21 @@
+.page-container {
+    border-top: 0px solid #CCC;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.page-container-inner {
+    padding: 30px 0px 50px 0px;
+}
+
+.page-container-inner-form {
+    padding: 30px 35px 10px 15px;
+}
+
+.page-container-inner-list .users {
+    margin-top: 50px;
+}
+
+.page-container-inner-view {
+    padding: 20px 35px;
+}

@@ -1,0 +1,24 @@
+.navbar
+  .navbar-inner
+      a.brand href="/" title="LetsHire: Recruitment Software, Applicant Tracking"
+        img src="/assets/logo_letshire.png" /
+      - if user_signed_in?
+        ul.nav
+          li 
+           a href="" id="noti_link" onclick="notificationDialog(#{current_user.id});return false;"  
+             img style="margin-bottom:2px;" src="/assets/glyphicons_notification.png" onload="createCookie(1)"  title="Notifications" 
+              span  id="notifycnt" 
+              input value='#{current_user.id}' type="hidden" id="getUserid"
+              input value='#{current_user.name}' type="hidden" id="getUsername"
+          
+          li  class="profile" data-global-action="profile"
+           a class="js-nav js-tooltip" data-nav="profile" data-component-term="profile_nav" href="/users/#{current_user.id}" data-original-title="Me" title="#{current_user.email}"
+            span class="new-wrapper"
+             i class="nav-me"
+            span class="text"  style="font-size:14px" Me 
+          li = link_to "Sign Out", destroy_user_session_path, :method => :delete , :onclick => 'deleteCookie()',:style=>"font-size:14px"
+      - else
+        ul.nav
+            li = link_to "Sign up",  new_user_registration_path
+
+

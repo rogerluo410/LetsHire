@@ -1,0 +1,30 @@
+div class="form-group col-md-6"
+ =f.label :hiring_manager, "Hiring Manager",:class => 'label-control'
+ - users =  User.active.select { |user| user.has_role?(:hiring_manager) }
+ = f.select :hiring_manager_id, users.map { |u| [u.name, u.id]}
+
+
+div class="form-group col-md-10"
+ =f.label :title, 'Title', :class => 'label-control'
+ =f.text_field :title ,  :id=>"title", :placeholder=>"Title"
+
+div class="form-group col-md-4"
+ = f.label :total_no, 'Quantity', :class => 'label-control'
+ = f.select :total_no,  [1, 2, 3,4,5,6,7,8,9,10]
+
+div class="form-group col-md-4"
+ =f.label :level, 'Level', :class => 'label-control'
+ = f.select :level, ["MTS", "Sr. MTS", "Staff", "Manager"]
+
+.control-group
+  table
+   td
+    .fileupload.fileupload-new data-provides='fileupload'
+     span.btn.btn-file
+      span.fileupload-new Select File
+      span.fileupload-exists Change
+      = f.file_field :description
+     span.fileupload-preview
+     a.close.fileupload-exists href='#' data-dismiss='fileupload' style="float: none" ×
+
+

@@ -1,0 +1,61 @@
+.content
+  ul.breadcrumb
+    li 
+      a href="/openings/opening_detail/#{@opening.id}" Opening Detail 
+      span.divider 
+        | &raquo;
+    li.active 
+      | #{@opening.title}
+   
+    -if user_signed_in? && (can? :manage, @opening)
+     li.r
+      = link_to 'Edit', edit_opening_path(@opening), :class => "btn btn-primary"
+
+  .page-container.clearfix
+    .form-horizontal.clear-both
+      / .control-group
+      /   label.control-label
+      /     b Department:
+      /   .controls
+      /     = @opening.department.try(:name)
+      -if user_signed_in?
+        .control-group
+          label.control-label
+            b Status:
+          .controls.capitalized-text
+            span = link_to "#{pluralize(@opening.active_candidates.count, 'candidate')}", candidates_path(:opening_id => @opening.id )
+      - elsif @opening.recruiter
+        .control-group
+          label.control-label
+            b Recruiter Email:
+          .controls
+            a href="mailto:#{@opening.recruiter.email}" = @opening.recruiter.email
+      .control-group
+        label.control-label
+          b Available Seats:
+        .controls
+          = @opening.total_no
+      -if user_signed_in?
+        / .control-group
+        /   label.control-label
+        /     b Recruiter:
+        /   .controls
+        /     - if @opening.recruiter
+        /       = link_to @opening.recruiter.name, @opening.recruiter
+        .control-group
+          label.control-label
+            b Hiring Manager:
+          .controls
+            - if @opening.hiring_manager
+              = link_to @opening.hiring_manager.name, @opening.hiring_manager
+      / .control-group
+      /   label.control-label
+      /     b Address:
+      /   .controls
+      /     = @opening.full_address
+      .control-group
+        label.control-label
+          b Job description:
+        .controls
+          a href="/openings/#{@opening.id}/openingfile"
+           = simple_format h(@opening.name)
